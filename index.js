@@ -74,7 +74,7 @@ bot.on("message", function(message) {
         var member = message.mentions.members.first();
         var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - Blessing", "https://i.imgur.com/nIsjewJ.png")
-            .setDescription("🙏**You have recieved a special blessing** " + member.user.username + ", from " + message.members.author.user.username + "🙏")
+            .setDescription("🙏***You have recieved a special blessing*** " + member.user + "***, from one of our Admins.***🙏")
             if (args[1]) message.channel.sendEmbed(embedd)
         } else {
             var embedd = new Discord.RichEmbed()
