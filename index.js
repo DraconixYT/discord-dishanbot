@@ -43,7 +43,7 @@ bot.on("message", function(message) {
         case "roll":
         var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - You Rolled...", "https://i.imgur.com/nIsjewJ.png")
-            .setDescription("``" + [Math.floor((Math.random() * args) + 1)] + "``")
+            .setDescription("``" + [Math.floor((Math.random() * args[1]) + 1)] + "``")
         if (args[1]) message.channel.sendEmbed(embedd);
         break;
 
