@@ -9,14 +9,6 @@ var fortunes = [
       "50, 50 Chance."
 ]
 
-var member = message.mentions.members.first();
-var deathwishes = [
-      "Go die, " + member.user + " you useless specimen.",
-      "Go die, " + member.user + " you failed cumshot.",
-      "Please go hang yourself " + member.user + " and do us all a favour.",
-      "Please " + member.user + ", just drive yourself off a cliff."
-]
-
 var bot = new Discord.Client();
 
 bot.on("ready", function() {
@@ -49,6 +41,12 @@ bot.on("message", function(message) {
 
         case "die":
         var member = message.mentions.members.first();
+        var deathwishes = [
+            "Go die, " + message.mentions.members.first().user + " you useless specimen.",
+            "Go die, " + message.mentions.members.first().user + " you failed cumshot.",
+            "Please go hang yourself " + message.mentions.members.first().user + " and do us all a favour.",
+            "Please " + message.mentions.members.first().user + ", just drive yourself off a cliff."
+      ]
         if (message.member.hasPermission("ADMINISTRATOR")) {
             var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - Death Wish", "https://i.imgur.com/nIsjewJ.png")
