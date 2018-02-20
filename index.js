@@ -28,7 +28,7 @@ bot.on("message", function(message) {
         case "help":
         var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - All Commands!", "https://i.imgur.com/nIsjewJ.png")
-            .addField("Fun Commands", "ping - Replys with 'Pong!'\nroll - Gives you a random number from 1-6!\ndie - Replys with a randomized Death Wish.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
+            .addField("Fun Commands", "ping - Replys with 'Pong!'\nroll - Gives you a random number from 1-6.\ndie - Replys with a randomized Death Wish directed towards the mentioned User.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
             .addField("Moderation Commands", "ban - Bans mentioned User!\nkick - Kicks mentioned User!\nmute - Mutes mentioned User!\nunmute - Unmutes mentioned User!")
         message.author.sendEmbed(embedd);
         break;
@@ -41,7 +41,10 @@ bot.on("message", function(message) {
             break;
 
         case "roll":
-            message.channel.sendMessage("You got a " + [Math.floor((Math.random() * 6) + 1)]);
+        var embedd = new Discord.RichEmbed()
+            .setAuthor("Dishan Bot - You Rolled...", "https://i.imgur.com/nIsjewJ.png")
+            .setDescription("``" + [Math.floor((Math.random() * 1000) + 1)] + "``")
+        message.channel.sendEmbed(embedd)
         break;
 
         case "die":
