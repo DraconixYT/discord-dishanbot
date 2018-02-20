@@ -6,7 +6,8 @@ const PREFIX = "+";
 var fortunes = [
       "Yes, certainly.",
       "No, impossible.",
-      "50, 50 Chance."
+      "50, 50 Chance.",
+      "You don't need it."
 ]
 
 var bot = new Discord.Client();
@@ -27,7 +28,7 @@ bot.on("message", function(message) {
         case "help":
         var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - All Commands!", "https://i.imgur.com/nIsjewJ.png")
-            .addField("Fun Commands", "ping - Replys with 'Pong!'\ndie - Replys with a Death Wish.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
+            .addField("Fun Commands", "ping - Replys with 'Pong!'\nroll - Gives you a random number from 1-6!\ndie - Replys with a randomized Death Wish.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
             .addField("Moderation Commands", "ban - Bans mentioned User!\nkick - Kicks mentioned User!\nmute - Mutes mentioned User!\nunmute - Unmutes mentioned User!")
         message.author.sendEmbed(embedd);
         break;
@@ -38,6 +39,10 @@ bot.on("message", function(message) {
                 .setDescription("Pong!")
             message.channel.sendEmbed(embedd);
             break;
+
+        case "roll":
+            message.channel.sendMessage("You got a " + [Math.floor((Math.random() * 6) + 1)]);
+        break;
 
         case "die":
         var member = message.mentions.members.first();
