@@ -53,7 +53,8 @@ bot.on("message", function(message) {
             "Go die, " + message.mentions.members.first().user + " you useless specimen.",
             "Go die, " + message.mentions.members.first().user + " you failed cumshot.",
             "Please go hang yourself " + message.mentions.members.first().user + " and do us all a favour.",
-            "Please " + message.mentions.members.first().user + ", just drive yourself off a cliff."
+            "Please " + message.mentions.members.first().user + ", just drive yourself off a cliff.",
+            message.mentions.members.first().user + ", " + "you should've been the dead body in Logan Pauls video."
       ]
         if (message.member.hasPermission("ADMINISTRATOR")) {
             var embedd = new Discord.RichEmbed()
