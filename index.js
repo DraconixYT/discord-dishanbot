@@ -28,7 +28,7 @@ bot.on("message", function(message) {
         case "help":
         var embedd = new Discord.RichEmbed()
             .setAuthor("Dishan Bot - All Commands!", "https://i.imgur.com/nIsjewJ.png")
-            .addField("Fun Commands", "ping - Replys with 'Pong!'\nroll - Gives you a random number from 1-1000.\ndie - Replys with a randomized Death Wish directed towards the mentioned User.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
+            .addField("Fun Commands", "ping - Replys with 'Pong!'\nroll - Gives you a random number from 1-1000.\ndie - Replys with a randomized Death Wish directed towards the mentioned User.\nbless - Admins can bless a mentioned User.\nanswer - Ask a question, and you will recieve your Answers.\ninfo - Gets information on mentioned User!")
             .addField("Moderation Commands", "ban - Bans mentioned User!\nkick - Kicks mentioned User!\nmute - Mutes mentioned User!\nunmute - Unmutes mentioned User!")
         message.author.sendEmbed(embedd);
         break;
@@ -61,6 +61,21 @@ bot.on("message", function(message) {
             .setAuthor("Dishan Bot - Death Wish", "https://i.imgur.com/nIsjewJ.png")
             .setDescription(deathwishes[Math.floor(Math.random() * deathwishes.length)])
         message.channel.sendEmbed(embedd);
+        } else {
+            var embedd = new Discord.RichEmbed()
+                .setAuthor("ERROR!", "https://i.imgur.com/nIsjewJ.png")
+                .setDescription("You don't have permissions to do that!")
+            message.channel.sendEmbed(embedd)
+        };
+        break;
+
+        case "bless":
+        if (message.member.hasPermission("ADMINISTRATOR")) {
+        var member = message.mentions.members.first();
+        var embedd = new Discord.RichEmbed()
+            .setAuthor("Dishan Bot - Blessing", "https://i.imgur.com/nIsjewJ.png")
+            .setDescription("🙏**You have recieved a special blessing** " + member.user + ", from " + message.author.user + "🙏")
+            if (args[1]) message.channel.sendEmbed(embedd)
         } else {
             var embedd = new Discord.RichEmbed()
                 .setAuthor("ERROR!", "https://i.imgur.com/nIsjewJ.png")
